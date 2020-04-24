@@ -148,7 +148,7 @@ namespace utca_Tomi
                     }
                 }
             }
-            Console.ReadKey();//
+            Console.ReadKey();
         }
     }
 }
