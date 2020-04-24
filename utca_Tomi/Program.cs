@@ -88,8 +88,66 @@ namespace utca_Tomi
                         szamlalo = 1;                                                         
                     }
                 }   
-            }          
+            }
+
+            //5. feladat
+            Console.Write("Adjon meg egy házszámot! ");
+            int hazszam = int.Parse(Console.ReadLine());
+            for (int i = 0; i<n;i++)
+            {
+                if (hazszam == adatok[i].hazszam)
+                {
+                    if (adatok[i].ker_szin != ":" && adatok[i].ker_szin != "#") 
+                    {
+                        Console.WriteLine("A kerítés színe: " + adatok[i].ker_szin);
+                    }
+                    else
+                    {
+                        Console.WriteLine("A kerítés állapota: " + adatok[i].ker_szin);
+                    }                 
+                }               
+            }
+
+            //5.b feladat
+            string szin = null;
+            szin1 = null;
+            szin2=null;
+            for (int i = 'A' ;i <= 'Z'; i++)
+            {
+                for (int j = 0;j<n;j++)
+                {
+                    if (hazszam == adatok[j].hazszam && adatok[j].ker_szin != ":" && adatok[j].ker_szin != "#")
+                    {
+                        szin = adatok[j].ker_szin;
+                    }
+                    if (hazszam -2 == adatok[j].hazszam)
+                    {
+                        szin1 = adatok[j].ker_szin;
+                    }
+                    if (hazszam + 2 == adatok[j].hazszam)
+                    {
+                        szin2 = adatok[j].ker_szin;
+                    }
+                }
+                if (szin != Convert.ToChar(i).ToString() && szin1 != Convert.ToChar(i).ToString() && szin2 != Convert.ToChar(i).ToString())
+                {
+                    Console.WriteLine("Egy lehetséges festési szín: {0}", Convert.ToChar(i));
+                    break;
+                }
+            }
+
+            //6.feladat
             
+            for (int i = 0;i<n;i++)
+            {
+                if (adatok[i].paros_paratlan == 1)
+                {
+                    for (int j = 0;j<adatok[i].telek_hossz;j++)
+                    {
+                        Console.Write(adatok[i].ker_szin);
+                    }
+                }
+            }
             Console.ReadKey();
         }
     }
