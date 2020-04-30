@@ -148,6 +148,24 @@ namespace utca_Tomi
                     }
                 }
             }
+            Console.WriteLine();
+            for (int i = 0; i < n; i++)
+            {
+                if (adatok[i].paros_paratlan == 1)
+                {
+                    for (int j = 0; j < adatok[i].telek_hossz; j++)
+                    {
+                        if (j == 0)
+                        {
+                            Console.Write(adatok[i].hazszam);
+                        }
+                        else
+                        {
+                            Console.Write(" ");
+                        }                     
+                    }
+                }
+            }
             Console.ReadKey();
         }
     }
