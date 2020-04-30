@@ -137,35 +137,37 @@ namespace utca_Tomi
             }
 
             //6.feladat
-            
+            StreamWriter ir = new StreamWriter(@"C:\Users\Rendszergazda\Desktop\2018-oktober\utcakep.txt");
             for (int i = 0;i<n;i++)
             {
                 if (adatok[i].paros_paratlan == 1)
                 {
                     for (int j = 0;j<adatok[i].telek_hossz;j++)
                     {
-                        Console.Write(adatok[i].ker_szin);
+                        ir.Write(adatok[i].ker_szin);
                     }
                 }
             }
-            Console.WriteLine();
+            ir.WriteLine();
             for (int i = 0; i < n; i++)
             {
                 if (adatok[i].paros_paratlan == 1)
                 {
-                    for (int j = 0; j < adatok[i].telek_hossz; j++)
+                    int h_szjegy = adatok[i].hazszam.ToString().Length;
+                    for (int j = 0; j < adatok[i].telek_hossz - h_szjegy + 1; j++)
                     {
                         if (j == 0)
                         {
-                            Console.Write(adatok[i].hazszam);
+                            ir.Write(adatok[i].hazszam);
                         }
                         else
                         {
-                            Console.Write(" ");
+                            ir.Write(" ");
                         }                     
                     }
                 }
             }
+            ir.Close();
             Console.ReadKey();
         }
     }
